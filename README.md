@@ -6,3 +6,14 @@
  1.Users are redirected to request their GitHub identity</br>
  2.Users are redirected back to your site by GitHub</br>
  3.Your app accesses the API with the user's access token</br>
+
+# 1. Request a user's GitHub identity
+GET https://github.com/login/oauth/authorize</br>
+When your GitHub App specifies a login parameter, it prompts users with a specific account they can use for signing in and authorizing your app.</br>
+
+# 2. Users are redirected back to your site by GitHub
+If the user accepts your request, GitHub redirects back to your site with a temporary code in a code parameter as well as the state you provided in the previous step in a state parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.</br>
+
+Exchange this code for an access token:</br>
+
+POST https://github.com/login/oauth/access_token</br>
