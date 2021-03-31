@@ -17,3 +17,12 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 Exchange this code for an access token:</br>
 
 POST https://github.com/login/oauth/access_token</br>
+
+# 3. Use the access token to access the API
+The access token allows you to make requests to the API on a behalf of a user.</br>
+
+Authorization: token OAUTH-TOKEN</br>
+GET https://api.github.com/user</br>
+For example, in curl you can set the Authorization header like this:</br>
+
+curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com/user
